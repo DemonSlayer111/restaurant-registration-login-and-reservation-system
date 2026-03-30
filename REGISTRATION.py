@@ -1,3 +1,7 @@
+import sys
+import subprocess
+from pathlib import Path
+
 import kivy
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
@@ -45,7 +49,7 @@ class registrationApp(App):
 
         #buttons
         submitButton = Button(text = 'submit', font_size = 12, on_press = self.register)
-        cancelButton = Button(text = 'cancel', font_size = 12)#attach function to return to main menu
+        cancelButton = Button(text = 'cancel', font_size = 12, on_press=self.go_back)
 
         #add labels
         layout.add_widget(headLabel)
@@ -98,7 +102,12 @@ class registrationApp(App):
         popup = Popup(title = "registration", content = Label(text = message), size_hint = (None, None), size = (400, 200))   
         popup.open()
         if success == True:
-            print("return to main menu")#add code to return to main menu
+           self.go_back()
+
+    def go_back(self, instance):
+        file_path = Path(__file__).parent / "main.py"
+        subprocess.Popen([sys.executable, str(file_path)])
+        self.stop()
         
 #run kivy
 if __name__=='__main__':
