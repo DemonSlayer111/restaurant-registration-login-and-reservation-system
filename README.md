@@ -45,6 +45,6 @@ popup = Popup(title = "login", content = Label(text = "logging in..."), size_hin
 
 ## Contributing
 
-Earl Gabriel Tagapolot = registration and login page
+Earl Gabriel Tagapolot (0898169) = registration and login page
 
-Anri Zaimi = main menu, reservation menu, and reservation
+Anri Zaimi (0702326) = main menu, reservation menu, and reservation
